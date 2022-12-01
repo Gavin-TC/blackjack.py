@@ -87,18 +87,6 @@ def house(cards, hand_total, user):
 def player():
     os.system("CLS")
 
-    # evaluate hand_total
-    # for x in range(len(player_cards)):
-    #     if player_cards[x] == "Ace": # if adding the regular ace value (11) will result in a bust, add 1 instead.
-    #         if player_hand_total + 11 > 21:
-    #             player_hand_total + 1
-    #         else:
-    #             player_hand_total + 11
-    #     if player_cards[x] == "Queen":
-    #         player_hand_total + 10
-    #     if player_cards[x] == "King":
-    #         player_hand_total + 10
-
     print("Your current cards: (" + str(player_hand_total) + "): ")
     for x in range(len(player_cards)):
         print(player_cards[x], end=" ")
