@@ -99,12 +99,12 @@ def player():
     #     if player_cards[x] == "King":
     #         player_hand_total + 10
 
-    print("Your current cards: (" + str(player_hand_total) + "): ")
+    print("Your current cards: (" + str(check_total()) + "): ")
     for x in range(len(player_cards)):
         print(player_cards[x], end=" ")
         
 
-    print("\nAI's current cards: (" + str(ai_hand_total) + "): ")
+    print("\nAI's current cards: (" + str(check_total()) + "): ")
     for x in range(len(ai_cards)):
         print(ai_cards[x], end=" ")
 
@@ -197,12 +197,9 @@ def check_total(cards, hand_total, user):
     os.system("CLS")
     global player_hand_total
     global ai_hand_total
-    print("CHECKING TOTAL")
 
-    if hand_total > 21:
-        print(user + " has bust.\n")
-        available_players.remove(user)
-        os.system("TIMEOUT 5")
+    print("hand total at start of function is " + str(hand_total))
+    os.system("PAUSE")
     
     for x in range(len(cards)):
         if cards[x] == "Ace": # if adding the regular ace value (11) will result in a bust, add 1 instead.
@@ -210,15 +207,18 @@ def check_total(cards, hand_total, user):
                 hand_total += 1
             else:
                 hand_total += 11
-        if cards[x] == "Queen":
+        elif cards[x] == "Queen":
             hand_total += 10
-        if cards[x] == "King":
+        elif cards[x] == "King":
             hand_total += 10
-        if cards[x] != "Ace" or cards[x] != "Queen" or cards[x] != "King":
+
+        elif cards[x] != "Ace" or cards[x] != "Queen" or cards[x] != "King":
             hand_total += int(cards[x])
 
-        # if cards[x] == 
-        
+    if hand_total > 21:
+        print(user + " has bust.\n")
+        available_players.remove(user)
+        os.system("TIMEOUT 5")
     
     print(str(hand_total) + " current hand total")
 
@@ -227,10 +227,11 @@ def check_total(cards, hand_total, user):
     if user == "ai":
         hand_total + ai_hand_total
     
-    print(player_hand_total)
-    print(ai_hand_total)
+    # print(player_hand_total)
+    # print(ai_hand_total)
+
+    return hand_total
     
-    print("COMPLETED CHECK")
     os.system("PAUSE")
 
 main()
