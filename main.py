@@ -99,12 +99,12 @@ def player():
     #     if player_cards[x] == "King":
     #         player_hand_total + 10
 
-    print("Your current cards: (" + str(check_total()) + "): ")
+    print("Your current cards: (" + str(player_hand_total) + "): ")
     for x in range(len(player_cards)):
         print(player_cards[x], end=" ")
         
 
-    print("\nAI's current cards: (" + str(check_total()) + "): ")
+    print("\nAI's current cards: (" + str(ai_hand_total) + "): ")
     for x in range(len(ai_cards)):
         print(ai_cards[x], end=" ")
 
@@ -229,8 +229,6 @@ def check_total(cards, hand_total, user):
     
     # print(player_hand_total)
     # print(ai_hand_total)
-
-    return hand_total
     
     os.system("PAUSE")
 
